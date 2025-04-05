@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.23.1)
 
 include(OMR_PackageVersion)  # Sets versionString, projectString and PACKAGE_NAME
 set(languages LANGUAGES CXX)
-if(NOT CMAKE_XCODE_BUILD_SYSTEM)
+if(NOT CMAKE_XCODE_BUILD_SYSTEM AND ("${CMAKE_GENERATOR}" MATCHES "Make") OR ("${CMAKE_GENERATOR}" MATCHES "Ninja"))
     list(APPEND languages ISPC)
 endif()
 project(${projectString}
