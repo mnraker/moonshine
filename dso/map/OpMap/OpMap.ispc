@@ -107,9 +107,9 @@ colorModulo(const varying Color &a, const varying Color &b)
     Color result;
     // We need to clamp the divisor to avoid a crash and
     // clamping to sEpsilon still crashes
-    result.r = fmod(a.r, max(0.00001f, b.r));
-    result.g = fmod(a.g, max(0.00001f, b.g));
-    result.b = fmod(a.b, max(0.00001f, b.b));
+    result.r = fmod(a.r, (const varying float)max(0.00001f, b.r));
+    result.g = fmod(a.g, (const varying float)max(0.00001f, b.g));
+    result.b = fmod(a.b, (const varying float)max(0.00001f, b.b));
     return result;
 }
 
